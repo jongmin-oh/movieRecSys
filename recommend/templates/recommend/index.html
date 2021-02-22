@@ -1,0 +1,11 @@
+{% if movie_data %}
+    <ul>
+    {% for movie in movie_data %}
+        <li><a>{{ movie.title_ko }}</a></li>
+        <li><img src="{{ movie.poster }}"></li>
+        <li><a href="{{ movie.link }}">자세히 보기</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>질문이 없습니다.</p>
+{% endif %}
