@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>이상형 월드컵</h1>
+    <h1>영화 월드컵</h1>
     <p id="cal"></p>
 	<img id="movie1" onclick="change(0)">
 	<img id="movie2" onclick="change(1)">
@@ -42,18 +42,27 @@
             current++;
         }
 
+        function showChampion(){
+            document.getElementById('movie1').src = movie_list[0]['img'];
+            document.getElementById('movie1').src = movie_list[0]['img'];
+        }
+
         function change(n){
-            if(current < 20)
+            if(current < 36)
             {
                 tournament++;
                 if(n == 0)
+                {
                     selectMovie[selectNum++] = movie_list[num];
-                else
+                    showImg(num);
+                }
+                else{
                     selectMovie[selectNum++] = movie_list[num+1];
+                    showImg(num);
+                }
                 num+=2;
+                // showImg(num);
 
-                showImg(num);
-            
                 if(tournament == movie_list.length/2){
                     console.log('ok');
                     for(i=0; i<selectMovie.length; i++){
@@ -66,10 +75,13 @@
                     selectNum = 0;
                     showImg(num);
                 }
+                if(movie_list.length === 1){
+                    showChampion()
+                }
             }
-            console.log(tournament)
+            console.log(current);
+            // console.log(num);
         }
-        
     </script>
 </body>
 

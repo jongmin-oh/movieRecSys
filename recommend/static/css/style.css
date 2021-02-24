@@ -51,3 +51,54 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
 }
+
+body{
+  background-color: black;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.container{
+  width: 9000px;
+  margin: 0 auto;
+
+}
+
+.top{
+  margin-top: 20px;
+  outline: 1px solid #FF0040;
+  width: 1500px;
+  height: 60px;
+  background-color: #FF0040;
+  text-align : center;
+}
+
+.bottom{
+  color: #FFFFFF;
+  font-size : 5px;
+  font-weight : bold;
+  text-align : center;
+}
+
+.middle{
+  margin-top: 20px;
+  width: 1000px;
+  height: 500px;
+  position: relative;
+}
+.img{
+  float: left;
+}
+.row-image{
+  padding: 0 0 0 35px;
+  hspace : 20;
+}
