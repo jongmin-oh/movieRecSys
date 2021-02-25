@@ -20,7 +20,7 @@ def worldcup(request):
 
 def index(request):
     #userID
-    best_movie_id = 5
+    best_movie_id = 1
     contents = content_recommend(best_movie_id)
 
     #best_movie = MovieData.objects.filter(movieId=best_movie_id)
@@ -50,3 +50,11 @@ def index(request):
      }
 
     return render(request,'recommend/index.html',context)
+
+def rating(request):
+    rating_movie = TopMovie.objects.all
+    
+    context = {
+        'rating_movie' : rating_movie
+    }
+    return render(request,'recommend/rating.html',context)

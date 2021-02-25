@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- {% if rating_movie %}
+    <table class="row">
+        {% for movie in rating_movie %}
+        <tr>
+            <td><a class="row-image"><img src="{{  movie.poster }}"></a></td>
+            <td>{{ movie.title_ko }}</td>
+            <td><input id='input{{ movie.movieId}}' type='range' min="0" , max="10" value="0"></td>
+            <td><button id='button{{ movie.movieId}}' type="button">평가하기</button></td>
+            <td><p id='p{{ movie.movieId}}'>.</p></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %} -->
+
+    <div class="range-slider">
+        <input class="range-slider__range" type="range" value="100" min="0" max="500">
+        <span class="range-slider__value">0</span>
+      </div>
+      
+      <div class="range-slider">
+        <input class="range-slider__range" type="range" value="250" min="0" max="500" step="50">
+        <span class="range-slider__value">0</span>
+      </div>
+      
+      <div class="range-slider">
+        <input class="range-slider__range" type="range" value="400" min="0" max="500">
+        <span class="range-slider__value">0</span>
+      </div>     
+
+
+</body>
+<script language="javascript">
+    var rangeSlider = function(){
+    var slider = $('.range-slider'),
+      range = $('.range-slider__range'),
+      value = $('.range-slider__value');
+    
+  slider.each(function(){
+
+    value.each(function(){
+      var value = $(this).prev().attr('value');
+      $(this).html(value);
+    });
+
+    range.on('input', function(){
+      $(this).next(value).html(this.value);
+    });
+  });
+};
+
+rangeSlider();
+</script>

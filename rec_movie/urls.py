@@ -21,5 +21,8 @@ from recommend import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('worldcup/',views.worldcup,name='worldcup'),
+    path('ratings/',views.rating,name='ratings'),
     path('',views.index, name = 'index')
 ]
+
+

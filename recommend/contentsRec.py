@@ -57,7 +57,8 @@ def content_recommend(movieId):
         "actor1" : main_character1,
         "actor2" : main_character2,
         "actor1_movie" : main1_id ,
-        "actor2_movie" : main2_id}
+        "actor2_movie" : main2_id
+    }
     
     return result_dict
 
