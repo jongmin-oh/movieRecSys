@@ -37,7 +37,7 @@ class RecUser(models.Model):
         return self.userName
 
 class UserRating(models.Model):
-    userId = models.ForeignKey(RecUser, on_delete=models.CASCADE)
+    userId = models.ForeignKey(User, on_delete=models.CASCADE)
     movieId = models.ForeignKey(MovieData, on_delete=models.CASCADE)
     rathig = models.FloatField()
 

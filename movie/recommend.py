@@ -30,13 +30,13 @@ def content_recommend(movieId):
     genres_index = genres_sim_df[movieId].sort_values(ascending=False)[:20].index
     genres_index = genres_index[genres_index != movieId]
     #20개 영화를 다시 평균 평점 기준으로 반환 -> movieId 리스트 추출
-    genre_id = cut_movies.loc[genres_index].sort_values('vote_average', ascending=False)[:6].index
+    genre_id = cut_movies.loc[genres_index].sort_values('vote_average', ascending=False).index
 
     title = movies_df.loc[movieId]['title_ko']
 
     director = movies_df.loc[movieId]['director']
     director_movies = movies_df[movies_df['director'] == director].sort_values(by='vote_count',ascending=False)
-    director_id = director_movies.loc[director_movies.index != movieId][:6].index
+    director_id = director_movies.loc[director_movies.index != movieId].index[:20]
 
     movies_df['actor_list'] = movies_df['actor'].map(lambda x : literal_eval(x))
 
@@ -54,10 +54,10 @@ def content_recommend(movieId):
             cast_idx2.append(i)
 
     character1_movies = movies_df.loc[cast_idx1].sort_values(by='vote_count',ascending=False)
-    main1_id = character1_movies.loc[character1_movies.index != movieId][:6].index
+    main1_id = character1_movies.loc[character1_movies.index != movieId].index[:20]
 
     character2_movies = movies_df.loc[cast_idx2].sort_values(by='vote_count',ascending=False)
-    main2_id = character2_movies.loc[character2_movies.index != movieId][:6].index
+    main2_id = character2_movies.loc[character2_movies.index != movieId].index[:20]
 
     result_dict = {
         "title" : title,
@@ -87,7 +87,7 @@ def item_based_recommend(movieId):
 
     item_sim_df = pd.DataFrame(data = item_sim, index = item_collabo_data.index, columns = item_collabo_data.index)
 
-    item_sim_index = item_sim_df[movieId].sort_values(ascending=False)[1:7].index
+    item_sim_index = item_sim_df[movieId].sort_values(ascending=False)[1:21].index
     result = {
         "item_movie" : item_sim_index
     }

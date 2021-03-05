@@ -11,7 +11,6 @@
   <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'worldcup.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'contents.css' %}">
-  <!-- <script src="{% static 'index.js' %}"></script> -->
 </head>
 <body>
   <div class="wrapper">
@@ -22,8 +21,8 @@
         <a id="logo" href="#home"><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true" alt="Logo Image"></a>
       </div>      
       <nav class="main-nav">                
-        <a href="#home">홈</a>
-        <a href="#tvShows">영화 월드컵</a>
+        <a href="{% url 'index' %}">홈</a>
+        <a href="{% url 'movie:worldcup' %}">영화 월드컵</a>
         <a href="#movies">영화 평가하기</a>
        
       </nav>
@@ -41,9 +40,9 @@
     {% block content %}
     {% endblock %}
   </div>
-</body>
-  <!-- 자바스크립트 Start -->
-  {% block script %}
-  {% endblock %}
-  <!-- 자바스크립트 End -->
 </html>
+
+<!-- 자바스크립트 Start -->
+{% block script %}
+{% endblock %}
+<!-- 자바스크립트 End -->
