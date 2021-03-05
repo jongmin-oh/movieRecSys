@@ -1,26 +1,13 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
 
-h1,
-p {
-  text-align: center;
-}
+
+
 p {
   width: 100%;
   max-width: 500px;
   margin: auto;
 }
-a:link,
-a:hover,
-a:active,
-a:visited {
-  -webkit-transition: color 150ms;
-  transition: color 150ms;
-  color: #95a5a6;
-  text-decoration: none;
-}
-a:hover {
-  color: #7f8c8d;
-  text-decoration: underline;
-}
+
 .contain {
   width: 100%;
 }
@@ -78,7 +65,7 @@ a:hover {
 
 .fa{
   font-size: 46px;
-  margin-top: 120px;
+  margin-top: 200px;
 }
 
 .row {
@@ -153,8 +140,8 @@ a:hover {
   left: 0;
   width: 100%;
   font-size: 30px;
-  margin-left: 7px;
-  margin-top: -13px;
+  margin-left: 2px;
+  margin-top: -20px;
   text-align: center;
   z-index: 2;
 }
@@ -167,18 +154,18 @@ a:hover {
   padding: 10px;
 }
 .row__inner:hover {
-  -webkit-transform: translate3d(-62.5px, 0, 0);
-          transform: translate3d(-62.5px, 0, 0);
+  -webkit-transform: translate3d(0, 0, -62.5px);
+          transform: translate3d(0, 0, -62.5px);
 }
 .row__inner:hover .gui-card {
   opacity: 0.3;
 }
 .row__inner:hover .gui-card:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
   opacity: 1;
 }
 .gui-card:hover ~ .gui-card {
-  -webkit-transform: translate3d(125px, 0, 0);
-          transform: translate3d(125px, 0, 0);
+  -webkit-transform: translate3d(30px, 0, 0);
+          transform: translate3d(30px, 0, 0);
 }
