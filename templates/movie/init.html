@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    h1,h3{
+        text-align: center
+    }
+</style>
+
+<h1>추천알고리즘을 사용한 영화 추천 웹서비스 입니다.</h1>
+<h3>서비스를 이용하시려면 로그인 또는 회원가입을 해주세요</h3>
+
+
+{% if worldcup_list %}
+<div class="slider">
+  <h3>이상형 월드컵에서 우승을 많이한 영화</h3>
+  <br>
+  <span onmouseover="scrollEsquerda(5)" onmouseout="clearScroll()" class="handle handlePrev active">
+    <i class="fa fa-caret-left" aria-hidden="true"></i>
+  </span>
+  <div id="scroller5" class="row">
+    <div class="row__inner">
+      {% for movie in worldcup_list %}
+      <div class="gui-card">
+        <div class="gui-card__media">
+          <img class="gui-card__img" src="{{  movie.poster }}" alt="" />
+        </div>
+        <div class="gui-card__details">
+          <div class="gui-card__title">
+            {{ movie.title_ko }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <span onmouseover="scrollDireita(5)" onmouseout="clearScroll()" class="handle handleNext active">
+    <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </span>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block script %}
+<script type='text/javascript'>
+  var intervalo;
+
+  function scrollDireita(n) {
+    intervalo = setInterval(function () { document.getElementById('scroller'+n).scrollLeft += 1 }, 5);
+  };
+  function scrollEsquerda(n) {
+    intervalo = setInterval(function () { document.getElementById('scroller'+n).scrollLeft -= 1 }, 5);
+  };
+  function clearScroll() {
+    clearInterval(intervalo);
+  };
+</script>
+{% endblock %}

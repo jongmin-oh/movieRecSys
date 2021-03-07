@@ -38,8 +38,8 @@ class RecUser(models.Model):
 
 class UserRating(models.Model):
     userId = models.ForeignKey(User, on_delete=models.CASCADE)
-    movieId = models.ForeignKey(MovieData, on_delete=models.CASCADE)
-    rathig = models.FloatField()
+    movieId = models.IntegerField()
+    rating = models.FloatField()
 
 class WorldCup(models.Model):
     movieId = models.IntegerField()

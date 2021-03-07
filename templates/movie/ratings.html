@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method='post'>
+    {% csrf_token %}
+    {% if rating_movie %}
+    <table class="row">
+        {% for movie in rating_movie %}
+        <tr>
+            <td><a class="row-image"><img src="{{  movie.poster }}"></a></td>
+            <td><td>&nbsp&nbsp<b><b>{{ movie.title_ko }}</td>
+            <td>
+                <div class="range-slider">
+                    <input type="hidden" name="movie_id" value="{{ movie.movieId }}">
+                    <input type="range" class="range-slider__range" name='movie_rating' value="0" min="0" max="5">
+                    <span class="range-slider__value">0</span>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <input type='submit' value="제출하기">
+</form>
+
+{% endblock %}
+
+{% block script %}
+
+<script language="javascript">
+    var rangeSlider = function () {
+        var slider = $('.range-slider'),
+            range = $('.range-slider__range'),
+            value = $('.range-slider__value');
+
+        slider.each(function () {
+
+            value.each(function () {
+                var value = $(this).prev().attr('value');
+                $(this).html(value);
+            });
+
+            range.on('input', function () {
+                $(this).next(value).html(this.value);
+            });
+        });
+    };
+    rangeSlider();
+
+</script>
+
+{% endblock %}

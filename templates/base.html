@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>무비판</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>>
   <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
@@ -23,7 +24,7 @@
       <nav class="main-nav">                
         <a href="{% url 'index' %}">홈</a>
         <a href="{% url 'movie:worldcup' %}">영화 월드컵</a>
-        <a href="#movies">영화 평가하기</a>
+        <a href="{% url 'movie:ratings' %}">영화 평가하기</a>
        
       </nav>
       <nav class="sub-nav">
