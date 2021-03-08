@@ -2,52 +2,188 @@
 
 {% block content %}
 
+<style>
+    div.sub-btn {
+        margin: auto;
+        width: 50%;
+    }
+
+    div.sub-btn input {
+        font-weight: bold;
+        text-align: center;
+        background-color: #4CAF50;
+        padding: 5px;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    table.row {
+        margin: 5% auto;
+        width: 50%;
+    }
+
+    .main {
+        width: 300px;
+        margin: 24% auto;
+        position: relative;
+    }
+
+    #slider {
+        background-color: white;
+        -webkit-appearance: none;
+        width: 100%;
+        height: 7px;
+        outline: none;
+        border-radius: 3px;
+    }
+
+    #slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        z-index: 3;
+        position: relative;
+    }
+
+    #selector {
+        height: 104;
+        width: 48px;
+        position: absolute;
+        bottom: 10px;
+        left: 0%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+
+    .SelectBtn {
+        height: 48px;
+        width: 48px;
+        background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbi72aP%2FbtqZvM97ITd%2Fcce4xI7vpCgqEcBReaLEak%2Fimg.png);
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #SelectValue {
+        color: black;
+        width: 48px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        background: #ffd200;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #SelectValue::after {
+        content: '';
+        border-top: 17px solid #ffd200;
+        border-left: 24px solid #141414;
+        border-right: 24px solid #141414;
+        position: absolute;
+        bottom: -14px;
+        left: 0;
+    }
+
+    #ProgressBar {
+        width: 0%;
+        height: 7px;
+        background-color: #ffd200;
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+
+<h1> 본 영화가 있다면 평가해주세요 </h1>
+<h1>평가를 많이 할 수록 취향을 파악할 수 있습니다.</h1>
+
 <form method='post'>
     {% csrf_token %}
-    {% if rating_movie %}
+    {% if rating_movie1 %}
     <table class="row">
-        {% for movie in rating_movie %}
+        {% for movie in rating_movie1 %}
         <tr>
             <td><a class="row-image"><img src="{{  movie.poster }}"></a></td>
-            <td><td>&nbsp&nbsp<b><b>{{ movie.title_ko }}</td>
             <td>
-                <div class="range-slider">
-                    <input type="hidden" name="movie_id" value="{{ movie.movieId }}">
-                    <input type="range" class="range-slider__range" name='movie_rating' value="0" min="0" max="5">
-                    <span class="range-slider__value">0</span>
+            <td>
+                &nbsp&nbsp<b><b></b>{{ movie.title_ko }}<br>
+                    &nbsp&nbsp{{movie.year}}
+            </td>
+            <td>
+                <input type="hidden" name="movie_id" value="{{ movie.movieId }}">
+                <div class="main">
+                    <input type="range" min="0" max="10" value="0" id="slider" , name="movie_rating">
+                    <div id="selector">
+                        <div class="SelectBtn"></div>
+                        <div id="SelectValue">0</div>
+                    </div>
+                    <div id="ProgressBar"></div>
                 </div>
             </td>
         </tr>
         {% endfor %}
     </table>
+    <div style="text-align: center;">
+        <input value="+ 더보기"onclick="if(this.parentNode.getElementsByTagName('div')[0].style.display != ''){this.parentNode.getElementsByTagName('div')[0].style.display = '';this.value = '숨기기';}else{this.parentNode.getElementsByTagName('div')[0].style.display = 'none'; this.value = '더보기';}"type="button">
+        <div style="display: none;">
+            <table class="row">
+                {% for movie in rating_movie2 %}
+                <tr>
+                    <td><a class="row-image"><img src="{{  movie.poster }}"></a></td>
+                    <td>
+                    <td>
+                        &nbsp&nbsp<b><b></b>{{ movie.title_ko }}<br>
+                            &nbsp&nbsp{{movie.year}}
+                    </td>
+                    <td>
+                        <input type="hidden" name="movie_id" value="{{ movie.movieId }}">
+                        <div class="main">
+                            <input type="range" min="0" max="10" value="0" id="slider" , name="movie_rating">
+                            <div id="selector">
+                                <div class="SelectBtn"></div>
+                                <div id="SelectValue">0</div>
+                            </div>
+                            <div id="ProgressBar"></div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
     {% endif %}
-    <input type='submit' value="제출하기">
+    <div class="sub-btn"><input type='submit' value="제출하기"></div>
 </form>
-
 {% endblock %}
 
 {% block script %}
 
 <script language="javascript">
-    var rangeSlider = function () {
-        var slider = $('.range-slider'),
-            range = $('.range-slider__range'),
-            value = $('.range-slider__value');
+    $(document).ready(function () {
+        $('.main').hover(function () {
+            var slider = $(this).children('input#slider')[0];
+            var selector = $(this).children('div#selector')[0];
+            var selectValue = $(this).children('div#selector').children('div#SelectValue')[0]
+            var progressBar = $(this).children('div#ProgressBar')[0];
 
-        slider.each(function () {
-
-            value.each(function () {
-                var value = $(this).prev().attr('value');
-                $(this).html(value);
-            });
-
-            range.on('input', function () {
-                $(this).next(value).html(this.value);
+            $(this).children('input#slider').on('propertychange change keyup paste input', function () {
+                selectValue.innerHTML = (slider.value / 2);
+                selector.style.left = (slider.value * 10) + "%";
+                progressBar.style.width = (slider.value * 10) + "%";
             });
         });
-    };
-    rangeSlider();
-
+    });
 </script>
 
 {% endblock %}

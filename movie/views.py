@@ -91,7 +91,10 @@ def worldcup(request):
 
 @login_required(login_url='common:login')
 def ratings(request):
-    rating_movie = TopMovie.objects.all()
+    rating_movie = list(TopMovie.objects.all())
+    random.shuffle(rating_movie)
+    rating_movie1 = rating_movie[:32]
+    rating_movie2 = rating_movie[32:64]
     
     if request.method == 'POST':
 
@@ -113,16 +116,17 @@ def ratings(request):
             try:
                 temp = UserRating.objects.get(movieId=movieId)
                 temp.movieId = movieId
-                temp.rating = ratings
+                temp.rating = (ratings / 2) # 10 점 만점 -> 5 점 만점
                 temp.save()
             except:
-                temp = UserRating(movieId=movieId,userId=current_user,rating=ratings)       
+                temp = UserRating(movieId=movieId,userId=current_user,rating=(ratings/2))       
                 temp.save()
 
-        return HttpResponse('complete')
+        return redirect('index')
 
 
     context = {
-        'rating_movie' : rating_movie
+        'rating_movie1' : rating_movie1,
+        'rating_movie2' : rating_movie2,
     }
     return render(request,'movie/ratings.html',context)
