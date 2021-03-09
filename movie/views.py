@@ -67,9 +67,6 @@ def worldcup(request):
     username = request.user
     if request.method == 'POST':
         bestmovie_id = int(request.POST.get('bestMovie'))
-        winCount = WorldCup.objects.get(movieId = bestmovie_id)
-        winCount.championCount += 1
-        winCount.save()
         try:
             find_user = RecUser.objects.get(userName=username)
             find_user.bestMovie = bestmovie_id
@@ -79,6 +76,15 @@ def worldcup(request):
             current_user = get_object_or_404(User, pk=find_user.id)
             bestmovie = RecUser(userId = current_user , userName = username , bestMovie = bestmovie_id)
             bestmovie.save()
+            
+        if(True):
+            try:
+                winCount = WorldCup.objects.get(movieId = bestmovie_id)
+                winCount.championCount += 1
+                winCount.save()
+            except:
+                winCount = WorldCup(movieId = bestmovie_id, championCount = 1)
+                winCount.save()
 
         return redirect('index')
 
