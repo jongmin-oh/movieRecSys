@@ -1,4 +1,4 @@
 
-vscode/
+.vscode/*.json
 
-/appendData.py
+appendData.py
