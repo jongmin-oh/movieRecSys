@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .container {
+        max-width: 400px;
+        max-height: 100px;
+        margin-top: 10px;
+    }
+
+    .done {
+        background-color: #5CAB7D;
+    }
+
+    .done:hover {
+        background-color: #6dc793;
+    }
+
+    .done:focus {
+        background-color: #6dc793;
+    }
+</style>
+
+<div class="container">
+    <div id="signup">
+        <div class="signup-screen">
+            <div class="space-bot text-center">
+                <h1>회원가입</h1>
+
+                <span>또는 <a href="{% url 'common:login' %}">로그인 하세요.</a></span>
+                <br><br>
+
+                <div class="divider"></div>
+            </div>
+            <form method="post" class="post-form">
+                {% csrf_token %}
+                {% include "form_errors.html" %}
+                <div class="input-field col s6">
+                    <label for="username">사용자 이름</label>
+                    <input id="username" name="username" type="text" value="{{ form.username.value|default_if_none:'' }}">
+
+                </div>
+                <div class="input-field col s6">
+                    <label for="password1">비밀번호</label>
+                    <input type="password" name="password1" id="password1"
+                        value="{{ form.password1.value|default_if_none:'' }}">
+
+                </div>
+                <div class="input-field col s6">
+                    <label for="password2">비밀번호 확인</label>
+                    <input type="password" name="password2" id="password2" value="{{ form.password2.value|default_if_none:'' }}">
+                
+                </div>
+                <div class="input-field col s6">
+                    <label for="email">이메일</label>
+                    <input type="text" name="email" id="email" value="{{ form.email.value|default_if_none:'' }}">
+                </div>
+                <div class="space-top text-center">
+                    <input type="submit" value="생성하기" class="submit-btn">
+                </div>
+            </form>
+        </div>
+    </div>
+    {% include "form_errors.html" %}
+</div>
+{% endblock %}
