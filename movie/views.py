@@ -86,8 +86,8 @@ def index(request):
             return render(request,'movie/index.html',context)
         except RecUser.DoesNotExist:
             return redirect('movie:worldcup')
-        # except KeyError:
-        #     return redirect('movie:ratings')
+        except KeyError:
+            return redirect('movie:ratings')
 
     return redirect('movie:main')
 
