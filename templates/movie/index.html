@@ -2,19 +2,51 @@
 
 {% block content %}
 <!-- MAIN CONTAINER -->
+
+{% if worldcup_list %}
 <div class="slider">
-    <h3>{{user_name}} 님이 뽑은 최고의 영화</h3>
+  <h3>이상형 월드컵에서 우승을 많이한 영화</h3>
+  <br>
+  <span onmouseover="scrollEsquerda(5)" onmouseout="clearScroll()" class="handle handlePrev active">
+    <i class="fa fa-caret-left" aria-hidden="true"></i>
+  </span>
+  <div id="scroller5" class="row">
+    <div class="row__inner">
+      {% for movie in worldcup_list %}
+      <div class="gui-card" onclick="location.href='{{ movie.link }}'">
+        <div class="gui-card__media">
+          <img class="gui-card__img" src="{{  movie.poster }}" alt="" />
+        </div>
+        <div class="gui-card__details">
+          <div class="gui-card__title">
+            <p>{{ movie.title_ko }}</p>
+            <p>{{ movie.year }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <span onmouseover="scrollDireita(5)" onmouseout="clearScroll()" class="handle handleNext active">
+    <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </span>
+</div>
+{% endif %}
+
+<div class="slider">
+    <h3>내가 뽑은 최고의 영화</h3>
     <br>
     <div id="scroller" class="row">
       <div class="row__inner">
 
-        <div class="gui-card">
+        <div class="gui-card" onclick="location.href='{{ best_movie.link }}'">
           <div class="gui-card__media">
-            <img class="gui-card__img" src="{{best_movie.poster}}" alt="" />
+            <img class="gui-card__img" src="{{best_movie.poster}}"/>
           </div>
           <div class="gui-card__details">
             <div class="gui-card__title">
-              {{ best_movie.title_ko}}
+              <p>{{ best_movie.title_ko}}</p>
+              <p>{{ best_movie.year }} </p>
             </div>
           </div>
         </div>
@@ -33,13 +65,14 @@
   <div id="scroller1" class="row">
     <div class="row__inner">
       {% for movie in sim_genre_list %}
-      <div class="gui-card">
+      <div class="gui-card" onclick="location.href='{{ movie.link }}'">
         <div class="gui-card__media">
           <img class="gui-card__img" src="{{  movie.poster }}" alt="" />
         </div>
         <div class="gui-card__details">
           <div class="gui-card__title">
-            {{ movie.title_ko }}
+            <p>{{ movie.title_ko }}</p>
+            <p>{{ movie.year }}</p>
           </div>
         </div>
       </div>
@@ -62,13 +95,14 @@
   <div id="scroller2" class="row">
     <div class="row__inner">
       {% for movie in director_list %}
-      <div class="gui-card">
+      <div class="gui-card" onclick="location.href='{{ movie.link }}'">
         <div class="gui-card__media">
           <img class="gui-card__img" src="{{  movie.poster }}" alt="" />
         </div>
         <div class="gui-card__details">
           <div class="gui-card__title">
-            {{ movie.title_ko }}
+            <p>{{ movie.title_ko }}</p>
+            <p>{{ movie.year }}</p>
           </div>
         </div>
       </div>
@@ -91,13 +125,14 @@
   <div id="scroller3" class="row">
     <div class="row__inner">
       {% for movie in actor1_list %}
-      <div class="gui-card">
+      <div class="gui-card" onclick="location.href='{{ movie.link }}'">
         <div class="gui-card__media">
           <img class="gui-card__img" src="{{  movie.poster }}" alt="" />
         </div>
         <div class="gui-card__details">
           <div class="gui-card__title">
-            {{ movie.title_ko }}
+            <p>{{ movie.title_ko }}</p>
+            <p>{{ movie.year }}</p>
           </div>
         </div>
       </div>
@@ -120,13 +155,14 @@
   <div id="scroller4" class="row">
     <div class="row__inner">
       {% for movie in actor2_list %}
-      <div class="gui-card">
+      <div class="gui-card" onclick="location.href='{{ movie.link }}'">
         <div class="gui-card__media">
           <img class="gui-card__img" src="{{  movie.poster }}" alt="" />
         </div>
         <div class="gui-card__details">
           <div class="gui-card__title">
-            {{ movie.title_ko }}
+            <p>{{ movie.title_ko }}</p>
+            <p>{{ movie.year }}</p>
           </div>
         </div>
       </div>
@@ -139,30 +175,94 @@
 </div>
 {% endif %}
 
-{% if worldcup_list %}
+{% if best_item_list %}
 <div class="slider">
-  <h3>이상형 월드컵에서 우승을 많이한 영화</h3>
+  <h3>"{{ best_movie.title_ko }}" 재미있게 보셨다면 이 영화 어때요?</h3>
   <br>
-  <span onmouseover="scrollEsquerda(5)" onmouseout="clearScroll()" class="handle handlePrev active">
+  <span onmouseover="scrollEsquerda(8)" onmouseout="clearScroll()" class="handle handlePrev active">
     <i class="fa fa-caret-left" aria-hidden="true"></i>
   </span>
-  <div id="scroller5" class="row">
+  <div id="scroller8" class="row">
     <div class="row__inner">
-      {% for movie in worldcup_list %}
-      <div class="gui-card">
+      {% for movie in best_item_list %}
+      <div class="gui-card" onclick="location.href='{{ movie.link }}'">
         <div class="gui-card__media">
           <img class="gui-card__img" src="{{  movie.poster }}" alt="" />
         </div>
         <div class="gui-card__details">
           <div class="gui-card__title">
-            {{ movie.title_ko }}
+            <p>{{ movie.title_ko }}</p>
+            <p>{{ movie.year }}</p>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
-  <span onmouseover="scrollDireita(5)" onmouseout="clearScroll()" class="handle handleNext active">
+  <span onmouseover="scrollDireita(8)" onmouseout="clearScroll()" class="handle handleNext active">
+    <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </span>
+</div>
+{% endif %}
+
+
+{% if item_base_list %}
+<div class="slider">
+  <h3>내가 좋게 평가한 영화와 비슷한 영화</h3>
+  <br>
+  <span onmouseover="scrollEsquerda(6)" onmouseout="clearScroll()" class="handle handlePrev active">
+    <i class="fa fa-caret-left" aria-hidden="true"></i>
+  </span>
+  <div id="scroller6" class="row">
+    <div class="row__inner">
+      {% for movie in item_base_list %}
+      <div class="gui-card" onclick="location.href='{{ movie.link }}'">
+        <div class="gui-card__media">
+          <img class="gui-card__img" src="{{  movie.poster }}" alt="" />
+        </div>
+        <div class="gui-card__details">
+          <div class="gui-card__title">
+            <p>{{ movie.title_ko }}</p>
+            <p>{{ movie.year }}</p>
+            <p>예상 별점 ☆  : {{ movie.pred_score }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <span onmouseover="scrollDireita(6)" onmouseout="clearScroll()" class="handle handleNext active">
+    <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </span>
+</div>
+{% endif %}
+
+{% if user_base_list %}
+<div class="slider">
+  <h3>나와 취향이 비슷한 사람들이 좋아한 영화</h3>
+  <br>
+  <span onmouseover="scrollEsquerda(7)" onmouseout="clearScroll()" class="handle handlePrev active">
+    <i class="fa fa-caret-left" aria-hidden="true"></i>
+  </span>
+  <div id="scroller7" class="row">
+    <div class="row__inner">
+      {% for movie in user_base_list %}
+      <div class="gui-card" onclick="location.href='{{ movie.link }}'">
+        <div class="gui-card__media">
+          <img class="gui-card__img" src="{{  movie.poster }}" alt="" />
+        </div>
+        <div class="gui-card__details">
+          <div class="gui-card__title">
+            <p>{{ movie.title_ko }}</p>
+            <p>{{ movie.year }}</p>
+            <p>예상 별점 ☆  : {{ movie.pred_score }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <span onmouseover="scrollDireita(7)" onmouseout="clearScroll()" class="handle handleNext active">
     <i class="fa fa-caret-right" aria-hidden="true"></i>
   </span>
 </div>
