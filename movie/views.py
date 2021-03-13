@@ -27,6 +27,7 @@ def index(request):
             best_movie_id = current_user.bestMovie
 
             contents = content_recommend(best_movie_id)
+
             best_item_base = best_item_base_recommend(best_movie_id)
 
             item_base = item_based_recommend(request.user.id)
@@ -155,7 +156,9 @@ def ratings(request):
             except:
                 temp = UserRating(movieId=movieId,userId=current_user,rating=(ratings/2))       
                 temp.save()
-
+        
+        
+        
         return redirect('index')
 
 
