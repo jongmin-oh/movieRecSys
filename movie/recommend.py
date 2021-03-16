@@ -49,8 +49,14 @@ def content_recommend(movieId):
     movies_df['actor_list'] = movies_df['actor'].map(lambda x: literal_eval(x))
 
     actors = movies_df.loc[movieId]['actor_list']
-    main_character1 = actors[0]
-    main_character2 = actors[1]
+
+    #영화배우가 1명인 경우
+    if len(actors) > 1:
+        main_character1 = actors[0]
+        main_character2 = actors[1]
+    else :
+        main_character1 = actors[0]
+        main_character2 = actors[0]
 
     cast_idx1 = []
     cast_idx2 = []
@@ -71,18 +77,16 @@ def content_recommend(movieId):
     main2_id = character2_movies.loc[character2_movies.index !=
                                      movieId].index[:20]
 
-    result_dict = {
+    return {
         "title": title,
-        "genre": genre_id,
+        "genre": list(genre_id),
         "director": director,
-        "director_movie": director_id,
+        "director_movie": list(director_id),
         "actor1": main_character1,
         "actor2": main_character2,
-        "actor1_movie": main1_id,
-        "actor2_movie": main2_id
+        "actor1_movie": list(main1_id),
+        "actor2_movie": list(main2_id)
     }
-
-    return result_dict
 
 def best_item_base_recommend(movie_id):
     movies_df = pd.DataFrame(list(MovieData.objects.all().values())).set_index('movieId')

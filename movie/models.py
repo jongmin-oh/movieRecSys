@@ -32,6 +32,9 @@ class RecUser(models.Model):
     userId = models.ForeignKey(User, on_delete=models.CASCADE)
     userName = models.CharField(max_length=200)
     bestMovie = models.IntegerField()
+    current_contents = models.TextField(null=True)
+    current_collabo_items = models.TextField(null=True)
+    current_collabo_users = models.TextField(null=True)
 
     def __str__(self):
         return self.userName
