@@ -4,7 +4,7 @@
 
 URL = http://alswhddh.pythonanywhere.com/
 
-![메인페이지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FUxYhf%2Fbtq0nOrThdD%2FKuegK1xOunv85V7evTP840%2Fimg.png)
+![메인페이지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FckME4K%2Fbtq0nO6v6dA%2FOxFrqUCiAC125mGTmcEyvk%2Fimg.png)
 
 <br><br>
 ### 1. 프로젝트 목표
@@ -32,11 +32,11 @@ URL = http://alswhddh.pythonanywhere.com/
 
 <br><br>
 ### 4. 이상형 월드컵
- ![2021-03-17_14-56-51.png](attachment:2021-03-17_14-56-51.png)
+ ![이상형 월드컵](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FUxYhf%2Fbtq0nOrThdD%2FKuegK1xOunv85V7evTP840%2Fimg.png)
  
  - 영화 월드컵에서 우승을 많이한 영화
  
- ![2021-03-17_15-07-58.png](attachment:2021-03-17_15-07-58.png)
+ ![우승 많이한 영화](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F9juTS%2Fbtq0ehpfz8T%2FNPNKbdXGl9sPgOganrCd4K%2Fimg.png)
 
  영화 월드컵이 끝날 때마다 우승 횟수를 카운트 해줘서 우승 횟수가 많은 순으로 보여준다.
  
@@ -45,17 +45,17 @@ URL = http://alswhddh.pythonanywhere.com/
 
  - 영화 월드컵에서 우승한 영화와 비슷한 장르 추천
  
-  ![2021-03-17_15-04-41.png](attachment:2021-03-17_15-04-41.png)
+  ![비슷한 장르](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc2eChK%2Fbtq0iXi45QC%2FngZQs1BdBBuf0sYMpKNGF0%2Fimg.png)
  
  - 같은 감독 작품 추천
-  ![2021-03-17_15-05-34.png](attachment:2021-03-17_15-05-34.png)
+  ![같은 감독](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsvBao%2Fbtq0g0OgqS4%2FU31ylywWeCxIV4iYtGeYr0%2Fimg.png)
  
  - 같은 배우 추천
-  ![2021-03-17_15-10-55.png](attachment:2021-03-17_15-10-55.png)
+  ![같은 배우](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbWumiN%2Fbtq0kEJ8HKz%2FCOcwkklNNVXYay3mVsTODk%2Fimg.png)
 
 <br><br> 
 ### 6. 영화 평가하기
-![2021-03-17_15-16-07.png](attachment:2021-03-17_15-16-07.png)
+![평가하기](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FwCLXf%2Fbtq0jMVRWjj%2F3hkXDB3kdtL92o18LFZMb1%2Fimg.png)
 
  0.5 ~ 5 점 까지 평점을 매길 수 있다.
  
@@ -65,15 +65,15 @@ URL = http://alswhddh.pythonanywhere.com/
 ### 7. 협업 필터링 
 
  - 영화 월드컵에서 우승한 영화와 가장 비슷한 영화 중 영화 평점기반 순위
-  ![2021-03-17_15-14-35.png](attachment:2021-03-17_15-14-35.png)
+  ![우승영화기반](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbneNBo%2Fbtq0fldUSWm%2F8jJntFD5rba3FzfRm4Zi3k%2Fimg.png)
   
  - 아이템 기반 협업 필터링 ( 예상 평점 기반 순위 )
  
-  ![2021-03-17_15-18-14.png](attachment:2021-03-17_15-18-14.png)
+  ![아이템기반](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb5gpav%2Fbtq0g0AyXbp%2FWNsSt6131nvlJ1bWRCAOyk%2Fimg.png)
   
  - 유저 기반 협업 필터링 ( 예상 평점 기반 순위 )
  
- ![2021-03-17_15-19-23.png](attachment:2021-03-17_15-19-23.png)
+ ![유저기반](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbn7RM9%2Fbtq0fjHawBZ%2FxgDuHSbPrBWbeJipqozrTK%2Fimg.png)
  
 <br><br>
 ### 8 . 결론 느낀 점
