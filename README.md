@@ -4,7 +4,7 @@
 
 URL = http://alswhddh.pythonanywhere.com/
 
-![2021-03-17_14-58-32.png](attachment:2021-03-17_14-58-32.png)
+![메인페이지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FUxYhf%2Fbtq0nOrThdD%2FKuegK1xOunv85V7evTP840%2Fimg.png)
 
 <br><br>
 ### 1. 프로젝트 목표
