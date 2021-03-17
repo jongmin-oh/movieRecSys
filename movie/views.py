@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from ast import literal_eval
 
-#movies_df = pd.DataFrame(list(MovieData.objects.all().values())).set_index('movieId')
+movies_df = pd.DataFrame(list(MovieData.objects.all().values())).set_index('movieId')
 
 def get_contents(user_id):
     current_user = RecUser.objects.get(userId=user_id)
