@@ -4,7 +4,7 @@
 
 URL = http://alswhddh.pythonanywhere.com/
 
-### <DEMO Auth>
+### DEMO Auth
 ID : temp@temp.com <br>
 PW : temp1234! <br>
 
