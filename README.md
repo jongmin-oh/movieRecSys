@@ -5,7 +5,7 @@
 URL = http://alswhddh.pythonanywhere.com/
 
 ### DEMO Auth
-- 개인화된 추천시스템이기에 회원가입해야합니다. 바로 하실분은 밑에 아이디로 접속<br>
+- 개인화된 추천시스템이기에 회원가입해야합니다. <br> 가입없이 바로 하실분은 밑에 아이디로 로그인<br>
 ID : temp <br>
 PW : temp1234! <br>
 
